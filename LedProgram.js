@@ -21,7 +21,7 @@ module.exports = class LedProgram {
   }
 
   run = (programName, delay) => {
-    const programs = ['loop', 'bounce', 'tiptap', 'growShrink', 'progress'];
+    const programs = ['loop', 'bounce', 'tiptap', 'growShrink', 'progress', 'sos', 'flyBy'];
 
     if (programs.indexOf(programName) === -1) {
       throw {
@@ -167,6 +167,50 @@ module.exports = class LedProgram {
       this.interval = 0;
     } else {
       this.interval++;
+    }
+  }
+
+  sos = () => {
+    // process.stdout.clearLine();
+    // process.stdout.cursorTo(0);
+    // process.stdout.write(`Firing ${this.interval % 2 === 0 ? 'even' : 'odd'} LEDs`);
+    // process.stdout.write(`\nInterval: ${this.interval}\n`);
+
+    let fireIntervals = [0, 2, 4, 7, 8, 11, 12, 15, 16, 19, 21, 23]
+
+    if (fireIntervals.includes(this.interval)) {
+      this.lights.forEach(light => {
+        light.gpio.writeSync(1);
+      });
+    } else {
+      this.lights.forEach(light => {
+        light.gpio.writeSync(0);
+      });
+    }
+
+    this.interval++;
+
+    if (this.interval > 25) {
+      this.interval = 0;
+    }
+  }
+
+  flyBy = () => {
+    // process.stdout.clearLine();
+    // process.stdout.cursorTo(0);
+    // process.stdout.write(`Firing ${this.interval % 2 === 0 ? 'even' : 'odd'} LEDs`);
+    // process.stdout.write(`\nInterval: ${this.interval}\n`);
+    
+    if (this.interval < 8) {
+      this.lights[this.interval].gpio.writeSync(1);
+    } else if (this.interval >= 8 && this.interval < this.lights.length * 2) {
+      this.lights[this.interval - this.lights.length].gpio.writeSync(0);
+    }
+
+    this.interval++;
+
+    if (this.interval > this.lights.length * 5) {
+      this.interval = 0;
     }
   }
 }
