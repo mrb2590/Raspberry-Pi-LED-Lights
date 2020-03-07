@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Red 1",
+    "pin": 18
+  },
+  {
+    "name": "Green 1",
+    "pin": 23
+  },
+  {
+    "name": "Yellow 1",
+    "pin": 24
+  },
+  {
+    "name": "Blue 1",
+    "pin": 25
+  },
+  {
+    "name": "Blue 2",
+    "pin": 4
+  },
+  {
+    "name": "Yellow 2",
+    "pin": 17
+  },
+  {
+    "name": "Green 2",
+    "pin": 27
+  },
+  {
+    "name": "Red 2",
+    "pin": 22
+  }
+]
