@@ -2,7 +2,7 @@
   "name": "led-lights",
   "version": "1.0.0",
   "description": "Control Raspberry Pi GPIO lights.",
-  "main": "led-lights.js",
+  "main": "run-lights.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
