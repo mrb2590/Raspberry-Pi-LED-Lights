@@ -1,9 +1,8 @@
 const LedProgram = require('./LedProgram.js');
 const args = process.argv.slice(2);
-const allowedArgs = ['program', 'circle'];
 const config = {
-  program: 'circle',
-  timing: 50
+  program: 'loop',
+  timing: 100
 };
 
 // Validate arguments
@@ -29,4 +28,12 @@ let light = new LedProgram;
 
 process.on('SIGINT', light.kill);
 
-light.run(config.program, config.timing);
+try {
+  light.run(config.program, config.timing);
+} catch (error) {
+  if (typeof error.message !== 'undefined') {
+    process.stdout.write(error.message);
+  } else {
+    process.stdout.write('Encountered error.');
+  }
+}
