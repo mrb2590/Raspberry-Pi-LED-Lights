@@ -1,4 +1,4 @@
-const LedProgram = require('./LedProgram.js');
+const LedController = require('./lib/LedController.js');
 const args = process.argv.slice(2);
 const config = {
   program: 'loop',
@@ -24,7 +24,7 @@ args.forEach(arg => {
   config[configName] = configValue;
 });
 
-let light = new LedProgram;
+let light = new LedController;
 
 process.on('SIGINT', light.kill);
 
