@@ -1,14 +1,26 @@
 {
-  "name": "led-lights",
+  "name": "raspberry-pi-led-lights",
   "version": "1.0.0",
-  "description": "Control Raspberry Pi GPIO lights.",
-  "main": "run-lights.js",
+  "description": "LED lights controller.",
+  "main": "led-lights.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "onoff": "^5.0.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrb2590/Raspberry-Pi-LED-Lights.git"
+  },
   "author": "Mike Buonomo",
   "license": "ISC",
-  "dependencies": {
-    "onoff": "^5.0.1"
-  }
+  "bugs": {
+    "url": "https://github.com/mrb2590/Raspberry-Pi-LED-Lights/issues"
+  },
+  "homepage": "https://github.com/mrb2590/Raspberry-Pi-LED-Lights#readme"
 }
